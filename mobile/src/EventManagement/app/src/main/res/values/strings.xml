@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Event Management</string>
+    <string name="title_activity_event_details">Event</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="need_help"><u>Forgot Password!! Need Help?</u></string>
+
+    <string name="ip_addres">192.168.0.106</string>
+
+    <string name="ID">ID</string>
+    <string name="USERNAME">ID_USERNAME</string>
+    <string name="PASSWORD">ID_PASSWORD</string>
+    <string name="EMAIL">ID_EMAIL</string>
+    <string name="PHONE">ID_PHONE</string>
+    <string name="CITY">ID_CITY</string>
+    <string name="PREF_FILE">APP_PREF_FILE</string>
+    <string name="SAVE">save</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>

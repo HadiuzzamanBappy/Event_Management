@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.bappy.eventmanagement.Single_Event_Details">
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/event_management_bg">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:fitsSystemWindows="true"
+            android:id="@+id/app_bar">
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:contentScrim="@color/colorPrimary"
+                android:fitsSystemWindows="true"
+                app:expandedTitleTextAppearance="@android:color/transparent">
+                <ImageView
+                    android:layout_width="180dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/event_management_logo"
+                    android:layout_gravity="center|bottom"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:id="@+id/singleeventactionbar"
+                    app:layout_collapseMode="pin"
+                    app:title="Event List"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    />
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:clipToPadding="false">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardUseCompatPadding="true"
+                android:elevation="5dp"
+                app:cardBackgroundColor="#a1887f"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="01 d 01:01:01 To Go"
+                        android:textColor="#607d8b"
+                        android:textSize="25sp"
+                        android:layout_gravity="top"
+                        android:gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:textStyle="bold|italic"
+                        android:id="@+id/remainingtimeheader"
+                        android:textColorHighlight="#fff"
+                        android:textIsSelectable="false"
+                        android:background="#aeee"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Registration Open"
+                        android:textColor="#607d8b"
+                        android:textSize="25sp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:textStyle="bold|italic"
+                        android:id="@+id/registrationenabler"
+                        android:textColorHighlight="#fff"
+                        android:textIsSelectable="false"
+                        android:background="#aeee"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        />
+                    <TextView
+                        android:id="@+id/hosternameview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Hoster Name"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/hosteremailview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Hoster Email"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/registrationStartdateview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Registration Start Date"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/registrationEnddateview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Registration End Date"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+                    <TextView
+                        android:id="@+id/eventStartdateview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Event Start Date"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/eventLengthview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Event Length"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/organizedByview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Organized By"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/venueview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Venue"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/phoneNoview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="For Any Details"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/feesView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="Fees"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"/>
+
+                    <TextView
+                        android:id="@+id/aboutview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="#fff"
+                        android:text="About"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:lineSpacingMultiplier="1.5"
+                        android:paddingRight="10dp"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fabSize="normal"
+            android:backgroundTint="#607d8b"
+            android:src="@drawable/ic_action_name"
+            app:layout_anchor="@id/app_bar"
+            app:layout_anchorGravity="bottom|right|end"
+            android:id="@+id/enterevent"
+            android:layout_margin="@dimen/fab_margin"/>
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.constraint.ConstraintLayout>
