@@ -195,7 +195,43 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            final AlertDialog.Builder builder=new AlertDialog.Builder(Event_Showing.this);
+
+            View view= LayoutInflater.from(Event_Showing.this).inflate(R.layout.custom_dialog,null);
+
+            TextView bodymessage=(TextView)view.findViewById(R.id.message);
+
+            ImageView closedialog=(ImageView)view.findViewById(R.id.close);
+
+            builder.setView(view);
+                bodymessage.setText("Are you sure to\nEXIT!!");
+                Button positive=(Button)view.findViewById(R.id.positive);
+                Button negative=(Button)view.findViewById(R.id.negative);
+                negative.setText("Yes,Quit");
+                positive.setText("Later");
+
+            final AlertDialog alert=builder.create();
+
+                negative.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                    }
+                });
+
+                positive.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       alert.cancel();
+                    }
+                });
+                closedialog.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alert.cancel();
+                    }
+                });
+                alert.show();
         }
     }
 

@@ -9,7 +9,7 @@
 
     <string name="need_help"><u>Forgot Password!! Need Help?</u></string>
 
-    <string name="ip_addres">192.168.0.106</string>
+    <string name="ip_addres"></string>
 
     <string name="ID">ID</string>
     <string name="USERNAME">ID_USERNAME</string>
