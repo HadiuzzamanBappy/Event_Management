@@ -3,6 +3,7 @@ package com.example.bappy.eventmanagement;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -53,16 +54,24 @@ public class Single_Event_Details extends AppCompatActivity {
 
     android.support.v7.widget.Toolbar toolbar;
 
-    String daytext, secondtext, minutetext, hourtext;
+    String daytext, secondtext, minutetext, hourtext,pagetype,hoster=null,userid;
     Boolean eventStartOk,eventEndOk,regEnd;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_event_details_layout);
 
+        sharedPreferences=getSharedPreferences(getString(R.string.PREF_FILE),0);
+        userid=sharedPreferences.getString(getString(R.string.ID),"NO");
+
         eventid=getIntent().getStringExtra("eventid");
         eventname=getIntent().getStringExtra("eventname");
+        pagetype=getIntent().getStringExtra("pagetype");
+
+        if(pagetype.equals("1"))
+            hoster=getIntent().getStringExtra("eventhoster");
 
         toolbar=(android.support.v7.widget.Toolbar)findViewById(R.id.singleeventactionbar);
         setSupportActionBar(toolbar);
@@ -91,26 +100,35 @@ public class Single_Event_Details extends AppCompatActivity {
         remaintext=(TextView)findViewById(R.id.remainingtimeheader);
         registrationopen=(TextView)findViewById(R.id.registrationenabler);
 
+        if(pagetype.equals("2"))
+            floatingActionButton.setVisibility(View.GONE);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final ProgressDialog progressDialog=new ProgressDialog(Single_Event_Details.this);
-                progressDialog.setMessage("Please Wait....");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-                new Handler().postDelayed(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                progressDialog.cancel();
-                                Intent intent=new Intent(Single_Event_Details.this,Event_Registration.class);
-                                intent.putExtra("eventid", eventid);
-                                intent.putExtra("class","2");
-                                startActivity(intent);
-                                finish();
-                            }
-                        },2000);
+                if (pagetype.equals("1") && !hoster.equals(null) && hoster.equals(userid))
+                    Toast.makeText(Single_Event_Details.this, "Sorry, You Are The Creator", Toast.LENGTH_SHORT).show();
+                else{
+                    final ProgressDialog progressDialog = new ProgressDialog(Single_Event_Details.this);
+                    progressDialog.setMessage("Please Wait....");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+                    new Handler().postDelayed(
+                            new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressDialog.cancel();
+                                    Intent intent = new Intent(Single_Event_Details.this, Event_Registration.class);
+                                    intent.putExtra("eventid", eventid);
+                                    intent.putExtra("class", "2");
+                                    intent.putExtra("eventname", eventname);
+                                    intent.putExtra("pagetype", pagetype);
+                                    intent.putExtra("eventhoster", hoster);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 2000);
+                }
             }
         });
     }

@@ -70,15 +70,13 @@
         >
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
             android:text="Submit"
             android:id="@+id/submit"
             android:textSize="20sp"
             android:hapticFeedbackEnabled="true"
             android:layout_alignParentLeft="true"
-            android:background="#fff"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:background="@drawable/edit_text_field"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="2dp"
             />

@@ -64,8 +64,7 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
 
     String userid;
 
-    Toolbar toolbar;
-    DrawerLayout drawerLayout;
+    TextView headername,headeremail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +75,12 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
         editor=sharedPreferences.edit();
 
         userid=sharedPreferences.getString(getString(R.string.ID),"NO");
+
+        headername=(TextView)findViewById(R.id.usernameheader);
+        headeremail=(TextView)findViewById(R.id.useremailheader);
+
+        String name=sharedPreferences.getString(getString(R.string.USERNAME),"");
+        String email=sharedPreferences.getString(getString(R.string.EMAIL),"");
 
         floatingActionButton=(FloatingActionButton)findViewById(R.id.addevent);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +115,11 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_1);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+        headername = (TextView) headerView.findViewById(R.id.usernameheader);
+        headeremail = (TextView) headerView.findViewById(R.id.useremailheader);
+        headername.setText(name);
+        headeremail.setText(email);
 
         progressDialog=new ProgressDialog(this);
         //progressDialog.setTitle("Attention");
@@ -421,6 +431,9 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
                         Intent intent = new Intent(Event_Showing.this, Event_Registration.class);
                         intent.putExtra("eventid", event.getId());
                         intent.putExtra("class","1");
+                        intent.putExtra("eventname", event.getName());
+                        intent.putExtra("pagetype", "1");
+                        intent.putExtra("eventhoster", event.getEventhoster());
                         startActivity(intent);
                         finish();
                     }
@@ -432,6 +445,8 @@ public class Event_Showing extends AppCompatActivity implements NavigationView.O
                     Intent intent = new Intent(Event_Showing.this, Single_Event_Details.class);
                     intent.putExtra("eventid", event.getId());
                     intent.putExtra("eventname", event.getName());
+                    intent.putExtra("pagetype", "1");
+                    intent.putExtra("eventhoster", event.getEventhoster());
                     startActivity(intent);
                 }
             });

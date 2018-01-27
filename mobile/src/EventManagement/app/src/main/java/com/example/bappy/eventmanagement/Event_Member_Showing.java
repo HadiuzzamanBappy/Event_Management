@@ -94,6 +94,7 @@ public class Event_Member_Showing extends AppCompatActivity {
                                 Intent intent=new Intent(Event_Member_Showing.this,Single_Event_Details.class);
                                 intent.putExtra("eventid", eventid);
                                 intent.putExtra("eventname", eventname);
+                                intent.putExtra("pagetype", "2");
                                 startActivity(intent);
             }
         });

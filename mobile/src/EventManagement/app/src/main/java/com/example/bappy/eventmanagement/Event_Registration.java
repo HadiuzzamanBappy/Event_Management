@@ -47,7 +47,7 @@ public class Event_Registration extends AppCompatActivity {
 
     CoordinatorLayout coordinatorLayout;
 
-    String userid,eventid,fromclass;
+    String userid,eventid,fromclass,pagetype,hoster,eventname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +62,9 @@ public class Event_Registration extends AppCompatActivity {
         userid=sharedPreferences.getString(getString(R.string.ID),"NO");
         eventid=getIntent().getStringExtra("eventid");
         fromclass=getIntent().getStringExtra("class");
+        eventname=getIntent().getStringExtra("eventname");
+        pagetype=getIntent().getStringExtra("pagetype");
+        hoster=getIntent().getStringExtra("eventhoster");
 
         organization=(EditText)findViewById(R.id.organization);
         phoneno=(EditText)findViewById(R.id.contactno);
@@ -238,8 +241,14 @@ public class Event_Registration extends AppCompatActivity {
     public void onBackPressed() {
         if(fromclass.equals("1"))
             startActivity(new Intent(Event_Registration.this,Event_Showing.class));
-        else
-            startActivity(new Intent(Event_Registration.this,Single_Event_Details.class));
+        else {
+            Intent intent=new Intent(Event_Registration.this, Single_Event_Details.class);
+            intent.putExtra("eventid", eventid);
+            intent.putExtra("eventname", eventname);
+            intent.putExtra("pagetype", pagetype);
+            intent.putExtra("eventhoster", hoster);
+            startActivity(intent);
+        }
         finish();
     }
 }

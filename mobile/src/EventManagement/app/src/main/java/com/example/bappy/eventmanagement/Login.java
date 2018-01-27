@@ -67,8 +67,8 @@ public class Login extends AppCompatActivity {
         signup=(Button) findViewById(R.id.signup);
         needHelp=(TextView) findViewById(R.id.needhelp);
 
-        email.setText("hbappy79@gmail.com");
-        password.setText("bappy");
+        //email.setText("hbappy79@gmail.com");
+        //password.setText("bappy");
         emailok.setVisibility(View.GONE);
 
         needHelp.setOnClickListener(new View.OnClickListener() {

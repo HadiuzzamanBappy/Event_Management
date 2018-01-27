@@ -9,7 +9,7 @@ $email=$_POST["email"];
 $mysql_qry="SELECT * from userinformation where email like '$email'";
 $result=mysqli_query($conn,$mysql_qry);
 if($row=$result->fetch_assoc()){
-    echo $row['recoveryValue'];	
+    echo $row['password'];	
 }
 else
 {
