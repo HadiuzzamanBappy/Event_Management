@@ -459,8 +459,8 @@ public class Login extends AppCompatActivity {
 
             builder.setView(view);
             if(!s.contains("no")) {
-                new SendMailTask(Login.this).execute("hbappy79@gmail.com",
-                        "1829650117", emailstring, "Recover Password",
+                new SendMailTask(Login.this).execute("eventmanagement2018v1@gmail.com",
+                        "eventmanagement", emailstring, "Recover Password",
                         "Your Password is "+s);
                 bodymessage.setText("Your Password has been sent to your EMAIL ID");
             }
