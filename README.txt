@@ -36,3 +36,5 @@ Project Details:
 				THANK YOU.
 
 note.: manual will be available soon...
+
+Youtube App Review: https://www.youtube.com/watch?v=kPd0jb5qcV8
