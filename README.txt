@@ -18,11 +18,11 @@ Developed By:
 		3_1 Term
 
 Project Details:
-		This is about managing  Event.this is my short work.i will develop this later.
+		This is about managing Event.this is my short work.i will develop this later.
 		in this app the advantages are....
 		1. we can know our forgot password by email providing if they are enlisted.
 		2. we can register.
-		3. we can creat a event.
+		3. we can create a event.
 		4. we can register into a event except mine.
 		5. we can see our created event.
 		6. we can see our's e4vent member and can contact with them.
